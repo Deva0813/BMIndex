@@ -14,13 +14,16 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('BMI CALCULATOR'),
-          centerTitle: true,
+          title:  const Padding(
+            padding: EdgeInsets.only(left: 10.0),
+            child: Text('BMI CALCULATOR'),
+          ),
+
         ),
         body: Column(
           children: [
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Row(
                 children: [
                   GenderWidget(
@@ -56,7 +59,7 @@ class _HomeState extends State<Home> {
                 margin: const EdgeInsets.all(20.0),
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  color: Color(0xff090c23),
+                  color: Color(0xff0c122f),
                   borderRadius: BorderRadius.all(
                     Radius.circular(15.0),
                   ),
@@ -68,7 +71,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Row(
                 children: [
                   Expanded(
@@ -78,7 +81,7 @@ class _HomeState extends State<Home> {
                       width: double.infinity,
                       height: double.infinity,
                       decoration: const BoxDecoration(
-                          color: Color(0xff090c23),
+                          color: Color(0xff0c122f),
                           borderRadius:
                               BorderRadius.all(Radius.circular(15.0))),
                       child: const Padding(
@@ -94,7 +97,7 @@ class _HomeState extends State<Home> {
                       width: double.infinity,
                       height: double.infinity,
                       decoration: const BoxDecoration(
-                          color: Color(0xff090c23),
+                          color: Color(0xff0c122f),
                           borderRadius:
                               BorderRadius.all(Radius.circular(15.0))),
                       child: const Padding(
@@ -106,26 +109,28 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 30.0),
-              width: double.infinity,
-              height: 70.0,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.black38,
-                  backgroundColor: const Color(0xffE10D51),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(0)),
-                  ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: const EdgeInsets.only(top: 20.0),
+                width: double.infinity,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black38,
+                    backgroundColor: const Color(0xffE10D51),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(0)),
+                    ),
 
-                ),
-                onPressed: () {
-                  debugPrint("pressed");
-                },
-                child: const Text(
-                  "CALCULATE",
-                  style: TextStyle(
-                      color: Colors.white, fontSize: 20.0, letterSpacing: 1.0),
+                  ),
+                  onPressed: () {
+                    debugPrint("pressed");
+                  },
+                  child: const Text(
+                    "CALCULATE",
+                    style: TextStyle(
+                        color: Colors.white, fontSize: 20.0, letterSpacing: 1.0),
+                  ),
                 ),
               ),
             ),
@@ -175,15 +180,18 @@ class GenderWidget extends StatelessWidget {
                 flex: 6,
                 child: Icon(
                   icon,
-                  size: 100.0,
+                  //Auto resize
+                  size: MediaQuery.of(context).size.width * 0.3,
                   color: const Color(0xffcdcdd1),
                 ),
               ),
               Expanded(
                 flex: 2,
-                child: Text(
-                  text,
-                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                child: Center(
+                  child: Text(
+                    text.toUpperCase(),
+                    style: const TextStyle(fontSize: 18.0, color: Colors.white),
+                  ),
                 ),
               ),
             ],
