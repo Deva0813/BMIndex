@@ -23,6 +23,7 @@ class App extends StatelessWidget {
               fontFamily: GoogleFonts.poppins().fontFamily,
               fontSize: 20.0,
               fontWeight: FontWeight.w600,
+              letterSpacing: 1.0,
             ),
           toolbarHeight: 70.0,
         ),
