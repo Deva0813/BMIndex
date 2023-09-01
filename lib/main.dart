@@ -1,4 +1,5 @@
 import 'package:bmi_calc/screens/home.dart';
+import 'package:bmi_calc/screens/result.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,7 +15,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Home(),
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF03051C),
         appBarTheme: AppBarTheme(
@@ -32,6 +32,11 @@ class App extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Home(),
+        "/result": (context) => const Results(),
+      }
     );
   }
 }
