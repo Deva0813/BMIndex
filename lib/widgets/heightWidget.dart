@@ -36,13 +36,16 @@ class HeightWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(
-                  height.toString(),
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height*0.055,
-                    fontFamily: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w800,
-                    ).fontFamily,
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: Text(
+                    height.toString(),
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width*0.1,
+                      fontFamily: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w700,
+                      ).fontFamily,
+                    ),
                   ),
                 ),
                 const SizedBox(

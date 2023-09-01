@@ -50,15 +50,18 @@ class SubWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    value.toString(),
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: MediaQuery.of(context).size.width * 0.1,
-                      letterSpacing: 1.0,
-                      fontFamily:
-                          GoogleFonts.poppins(fontWeight: FontWeight.w700)
-                              .fontFamily,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Text(
+                      value.toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: MediaQuery.of(context).size.width * 0.1,
+                        letterSpacing: 1.0,
+                        fontFamily:
+                            GoogleFonts.poppins(fontWeight: FontWeight.w700)
+                                .fontFamily,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -83,10 +86,15 @@ class SubWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FloatingActionButton(
+                  RawMaterialButton(
                     onPressed: onPressed1,
-                    backgroundColor: kSupportColor,
+                    fillColor: kSupportColor,
                     splashColor: Colors.transparent,
+                    shape: const CircleBorder(),
+                    constraints: const BoxConstraints.tightFor(
+                      width: 50.0,
+                      height: 50.0,
+                    ),
                     child: const Icon(
                       Icons.remove,
                       color: kIconColor,
@@ -96,10 +104,14 @@ class SubWidget extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  FloatingActionButton(
-                    onPressed: onPressed2,
-                    backgroundColor: kSupportColor,
+                  RawMaterialButton(onPressed: onPressed2,
+                    fillColor: kSupportColor,
                     splashColor: Colors.transparent,
+                    shape: const CircleBorder(),
+                    constraints: const BoxConstraints.tightFor(
+                      width: 50.0,
+                      height: 50.0,
+                    ),
                     child: const Icon(
                       Icons.add,
                       color: kIconColor,
