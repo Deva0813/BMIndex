@@ -1,3 +1,4 @@
+import 'package:bmi_calc/bmi_calc.dart';
 import 'package:bmi_calc/widgets/heightWidget.dart';
 import 'package:bmi_calc/widgets/subWidget.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +109,6 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-
       bottomNavigationBar: BottomAppBar(
         child: Container(
           width: double.infinity,
@@ -123,7 +123,6 @@ class _HomeState extends State<Home> {
               ),
             ),
             onPressed: () {
-
               if (selectedGender == "") {
                 showDialog(
                     context: context,
@@ -133,8 +132,7 @@ class _HomeState extends State<Home> {
                         backgroundColor: kActiveCard,
                         content: const Text("Please select Gender"),
                         shape: const RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(15.0)),
+                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         ),
                         actions: [
                           TextButton(
@@ -149,20 +147,24 @@ class _HomeState extends State<Home> {
                       );
                     });
               } else {
-                Navigator.pushNamed(context,"/result" );
+                BMICalc bmiCalc = BMICalc(height: height, weight: weight,age: age,gender: selectedGender);
+                Navigator.pushNamed(context, "/result", arguments: {
+                  "bmi": bmiCalc.calculateBMI(),
+                  "result": bmiCalc.getResult(),
+                  "interpretation": bmiCalc.getInterpretation(),
+                  "range": bmiCalc.getRange(),
+                  "textColor": bmiCalc.getTextColor(),
+                } );
               }
             },
             child: const Text(
               "CALCULATE",
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  letterSpacing: 1.0),
+                  color: Colors.white, fontSize: 20.0, letterSpacing: 1.0),
             ),
           ),
         ),
       ),
-
     );
   }
 }
