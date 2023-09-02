@@ -4,6 +4,7 @@ import 'package:bmi_calc/widgets/subWidget.dart';
 import 'package:flutter/material.dart';
 import '../widgets/genderWidget.dart';
 import '../constants/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,18 +19,34 @@ class _HomeState extends State<Home> {
   int weight = 60;
   int age = 18;
 
+  final Uri _url = Uri.parse("https://github.com/Deva0813/bmi_calc");
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Padding(
           padding: EdgeInsets.only(left: 10.0),
-          child: Text('BMI CALCULATOR'),
+          child: Text('BMIndex'),
         ),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: Icon(Icons.browse_gallery),
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(
+                splashFactory: NoSplash.splashFactory,
+                onTap: _launchUrl ,
+                child: const Image(
+              image: AssetImage("images/github.png"),
+              height: 27.0,
+              width: 27.0,
+            ),
+            ),
           )
         ],
       ),
@@ -134,7 +151,7 @@ class _HomeState extends State<Home> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: const Text("BMI Calculator"),
+                        title: const Text("BMIndex"),
                         backgroundColor: kActiveCard,
                         content: const Text("Please select Gender"),
                         shape: const RoundedRectangleBorder(
@@ -153,14 +170,18 @@ class _HomeState extends State<Home> {
                       );
                     });
               } else {
-                BMICalc bmiCalc = BMICalc(height: height, weight: weight,age: age,gender: selectedGender);
+                BMICalc bmiCalc = BMICalc(
+                    height: height,
+                    weight: weight,
+                    age: age,
+                    gender: selectedGender);
                 Navigator.pushNamed(context, "/result", arguments: {
                   "bmi": bmiCalc.calculateBMI(),
                   "result": bmiCalc.getResult(),
                   "interpretation": bmiCalc.getInterpretation(),
                   "range": bmiCalc.getRange(),
                   "textColor": bmiCalc.getTextColor(),
-                } );
+                });
               }
             },
             child: const Text(

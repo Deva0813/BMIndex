@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../constants/constants.dart';
 
 class SubWidget extends StatelessWidget {
@@ -39,12 +38,13 @@ class SubWidget extends StatelessWidget {
             children: [
               Text(
                 title.toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white54,
                     fontSize: 18.0,
                     letterSpacing: 1.0,
-                    fontFamily: GoogleFonts.poppins(fontWeight: FontWeight.w500)
-                        .fontFamily),
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -58,9 +58,8 @@ class SubWidget extends StatelessWidget {
                         color: Colors.white,
                         fontSize: MediaQuery.of(context).size.width * 0.1,
                         letterSpacing: 1.0,
-                        fontFamily:
-                            GoogleFonts.poppins(fontWeight: FontWeight.w700)
-                                .fontFamily,
+                        fontFamily:"Poppins",
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),

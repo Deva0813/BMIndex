@@ -1,7 +1,6 @@
 import 'package:bmi_calc/screens/home.dart';
 import 'package:bmi_calc/screens/result.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
@@ -17,18 +16,20 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF03051C),
-        appBarTheme: AppBarTheme(
-            backgroundColor: const Color(0xFF03051C),
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFF03051C),
             titleTextStyle: TextStyle(
-              fontFamily: GoogleFonts.poppins().fontFamily,
+              fontFamily: "Poppins",
               fontSize: 20.0,
               fontWeight: FontWeight.w600,
               letterSpacing: 1.0,
             ),
           toolbarHeight: 70.0,
         ),
-        textTheme: TextTheme(
-          bodyMedium: GoogleFonts.poppins(),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+            fontFamily: "Poppins"
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,

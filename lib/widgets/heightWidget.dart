@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../constants/constants.dart';
 
 class HeightWidget extends StatelessWidget {
@@ -25,12 +24,11 @@ class HeightWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Height".toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 18.0,
                     color: Colors.white54,
-                    fontFamily: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w500)
-                        .fontFamily,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
                     letterSpacing: 1.0)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,10 +39,9 @@ class HeightWidget extends StatelessWidget {
                   child: Text(
                     height.toString(),
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width*0.1,
-                      fontFamily: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w700,
-                      ).fontFamily,
+                      fontSize: MediaQuery.of(context).size.width*0.12,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
@@ -52,7 +49,7 @@ class HeightWidget extends StatelessWidget {
                   width: 5.0,
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
+                  padding: EdgeInsets.only(bottom: 15.0),
                   child: Text(
                     "cm",
                   ),
