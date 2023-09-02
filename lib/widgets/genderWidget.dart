@@ -53,7 +53,7 @@ class GenderWidget extends StatelessWidget {
                 flex: 2,
                 child: Text(
                   text.toUpperCase(),
-                  style: const TextStyle(fontSize: 16.0, color: Colors.white54, fontWeight: FontWeight.w400),
+                  style: const TextStyle(fontSize: 16.0, color: Colors.white54, fontWeight: FontWeight.w500),
                 ),
               ),
             ],

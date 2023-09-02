@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import '../constants/constants.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path_provider/path_provider.dart';
@@ -26,7 +25,7 @@ class Results extends StatelessWidget {
       appBar: AppBar(
         title: const Padding(
           padding: EdgeInsets.only(left: 10.0),
-          child: Text('BMI CALCULATOR '),
+          child: Text('BMIndex'),
         ),
       ),
       body: Padding(
@@ -34,12 +33,11 @@ class Results extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Your Result",
-              textAlign: TextAlign.start,
               style: TextStyle(
-                fontFamily:
-                    GoogleFonts.poppins(fontWeight: FontWeight.w600).fontFamily,
+                fontFamily:"Poppins",
+                fontWeight: FontWeight.w600,
                 fontSize: 35.0,
               ),
             ),
@@ -98,23 +96,23 @@ class Results extends StatelessWidget {
           Text(
             result.toUpperCase(),
             style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 30.0,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2.0,
                 color: Color(textColor)),
           ),
           Text(
             bmi,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 100.0,
-              fontFamily:
-                  GoogleFonts.poppins(fontWeight: FontWeight.w600).fontFamily,
+              fontFamily:"Poppins",
+              fontWeight: FontWeight.w600,
             ),
           ),
           Text(
             "$result BMI range:",
             style: const TextStyle(
-              fontSize: 16.0,
+              fontSize: 18.0,
               color: kTextColor,
               fontWeight: FontWeight.w600,
               letterSpacing: 1.0,
@@ -139,21 +137,30 @@ class Results extends StatelessWidget {
             child: Text(
               interpretation,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16.0,
+              style: const TextStyle(
+                fontSize: 18.0,
                 letterSpacing: 1.0,
                 fontFamily:
-                    GoogleFonts.poppins(fontWeight: FontWeight.w400).fontFamily,
+                "Poppins",
+                fontWeight: FontWeight.w500,
               ),
             ),
+          ),
+          const SizedBox(
+            height: 20.0,
           ),
           isShare
               ? TextButton(
                   onPressed: () async {
                     // final image = await screenshotController.capture();
                     final image = await screenshotController.captureFromWidget(
-                        resultCard(result, textColor, bmi, range,
-                            interpretation, screenshotController, false));
+                    Container(
+                      height: 600.0,
+                      width: 400.0,
+                      child: resultCard(result, textColor, bmi, range,
+                          interpretation, screenshotController, false),
+                    )
+                    );
                     final directory = await getApplicationDocumentsDirectory();
                     final imagePath =
                         await File('${directory.path}/screenshot.png').create();
@@ -173,10 +180,10 @@ class Results extends StatelessWidget {
                   ),
                   child: Text(
                     "Share Result".toUpperCase(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16.0,
-                        fontFamily: GoogleFonts.poppins(fontWeight: FontWeight.w400).fontFamily,
+                        fontFamily: "Poppins",
                         letterSpacing: 1.0),
                   ),
                 )
