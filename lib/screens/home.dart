@@ -26,6 +26,12 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.only(left: 10.0),
           child: Text('BMI CALCULATOR'),
         ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: Icon(Icons.browse_gallery),
+          )
+        ],
       ),
       body: Column(
         children: [
